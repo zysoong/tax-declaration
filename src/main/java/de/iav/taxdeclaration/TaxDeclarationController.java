@@ -15,7 +15,7 @@ public class TaxDeclarationController {
     @PutMapping()
     public TaxDeclaration addTaxDeclaration(@RequestBody @Valid TaxDeclaration declarationToAdd) throws TaxTooHighException {
         if(declarationToAdd.paidTax() / declarationToAdd.yearlyIncomeInEuro() > 0.5){
-            throw new TaxTooHighException("Paid tax ration to the yearly income is too high.");
+            throw new TaxTooHighException("Paid tax ratio to the yearly income is too high.");
         }
         return declarationToAdd;
     }
